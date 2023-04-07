@@ -1,11 +1,26 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
+import 'package:rick_and_morty/feature/presentation/widgets/person_list_widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Characters'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            color: Colors.white,
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+          )
+        ],
+      ),
+      body: PersonsList(),
+    );
   }
 }

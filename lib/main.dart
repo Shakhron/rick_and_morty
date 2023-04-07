@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<PersonListCubit>(
-          create: (context) => sl<PersonListCubit>(),
+          create: (context) => sl<PersonListCubit>()..loadPerson(),
         ),
         BlocProvider(
           create: (context) => sl<SearchBloc>(),
